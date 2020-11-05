@@ -9,8 +9,8 @@ public class TreeDriver {
     System.out.println("Count nodes in empty tree");
     System.out.println(tree.countNodes());
 
-    System.out.println("Create Nodes with data 1");
-    Node root = new Node(1);
+    System.out.println("Create Nodes with question A");
+    Node root = new Node("A");
 
     System.out.println("Set node as root");
     tree.setRoot(root);
@@ -18,12 +18,12 @@ public class TreeDriver {
     System.out.println("Count nodes in tree with only root added");
     System.out.println(tree.countNodes());
 
-    Node node2 = new Node(2);
-    Node node3 = new Node(3);
-    Node node4 = new Node(4);
-    Node node5 = new Node(5);
-    Node node6 = new Node(6);
-    Node node7 = new Node(7);
+    Node node2 = new Node("B");
+    Node node3 = new Node("C");
+    Node node4 = new Node("D");
+    Node node5 = new Node("E");
+    Node node6 = new Node("F");
+    Node node7 = new Node("G");
 
     root.setLeft(node2);
     node2.setLeft(node4);
@@ -36,7 +36,7 @@ public class TreeDriver {
     tree.setCurrent(tree.getRoot());
 
     System.out.println("Display the current node");
-    System.out.println(tree.getCurrent().getData());
+    System.out.println(tree.getCurrent().getQuestion());
 
     Node currentNode = tree.getCurrent();
 

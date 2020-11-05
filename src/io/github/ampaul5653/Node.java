@@ -2,26 +2,31 @@ package io.github.ampaul5653;
 
 public class Node {
 
-  int data;
+  String question;
+  String animal;
   Node left;
   Node right;
 
-  public Node(int data) {
-    this.data = data;
-    left = null;
-    right = null;
+  public Node(String question) {
+    this.question = question;
+    this.animal = null;
+    this.left = null;
+    this.right = null;
+  }
+
+  public Node(String question, String animal) {
+    this.animal = animal;
+    this.question = "Is it a " + animal + "?";
+    this.left = null;
+    this.right = null;
   }
 
   public void setLeft(Node node) {
-    if (left == null) {
-      left = node;
-    }
+    left = node;
   }
 
   public void setRight(Node node) {
-    if (right == null) {
-      right = node;
-    }
+    right = node;
   }
 
   public Node getLeft() {
@@ -32,12 +37,16 @@ public class Node {
     return right;
   }
 
-  public int getData() {
-    return data;
+  public String getQuestion() {
+    return question;
   }
 
-  public void setData(int data) {
-    this.data = data;
+  public String getAnimal(){
+    return animal;
+  }
+
+  public void setQuestion(String question) {
+    this.question = question;
   }
 
   // prints the node, then its children (left to right child priority)
@@ -45,7 +54,7 @@ public class Node {
     if (node == null) {
       return;
     }
-    System.out.print(node.data + " ");
+    System.out.print(node.question + " ");
     printPreorder(node.left);
     printPreorder(node.right);
   }
@@ -57,7 +66,7 @@ public class Node {
     }
     printPostorder(node.left);
     printPostorder(node.right);
-    System.out.print(node.data + " ");
+    System.out.print(node.question + " ");
   }
 
   // prints the left child, the node, then the right child (left to right child priority)
@@ -66,7 +75,7 @@ public class Node {
       return;
     }
     printInOrder(node.left);
-    System.out.print(node.data + " ");
+    System.out.print(node.question + " ");
     printInOrder(node.right);
   }
 
@@ -78,7 +87,7 @@ public class Node {
     if (right != null) {
       right.print(prefix + (isTail ? "│ " : " "), false, sb);
     }
-    System.out.println(prefix + (isTail ? "\\--" : "/--") + data);
+    System.out.println(prefix + (isTail ? "\\--" : "/--") + question);
     if (left != null) {
       left.print(prefix + (isTail ? " " : "│ "), true, sb);
     }
