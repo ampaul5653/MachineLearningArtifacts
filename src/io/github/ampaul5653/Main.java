@@ -37,6 +37,7 @@ public class Main {
             String yesOrNo = sc.nextLine(); // take user answer
             Node previousQuestion = null; // set default for previous node that the tree was on
 
+            // while there are still nodes left to go to, travel through the tree
             while(aiTree.getCurrent().getLeft() != null){
               // if the current node has no animal, make it the previous node
               if(aiTree.getCurrent().getAnimal() == null) {
@@ -46,11 +47,15 @@ public class Main {
               aiTree.setCurrent(aiTree.moveCurrent(aiTree.getCurrent(), yesOrNo));
               // after moving, print the current question
               System.out.println(aiTree.getCurrent().getQuestion());
-              yesOrNo = sc.nextLine();
+              yesOrNo = sc.nextLine(); // take the user's input
             }
 
-            if(yesOrNo.toUpperCase().equals("N")){ // add a new question if the final answer is no
+            // Add a new question if the final answer is no. Print a victory message elsewise.
+            if(yesOrNo.toUpperCase().equals("N")){
               aiTree.addNewQuestion(aiTree, previousQuestion);
+            } else{
+              System.out.println("Yes! I win! Your animal was a " + aiTree.getCurrent().getAnimal()
+              + "! Let's play again! \n");
             }
 
             aiTree.setCurrent(aiTree.getRoot()); // reset the current node so user can play again
