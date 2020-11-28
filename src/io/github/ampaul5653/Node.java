@@ -7,6 +7,7 @@ public class Node {
   Node left;
   Node right;
 
+  //constructor for a question node
   public Node(String question) {
     this.question = question;
     this.animal = null;
@@ -14,6 +15,9 @@ public class Node {
     this.right = null;
   }
 
+  /* constructor for an animal node
+   I understand that this is a horrible practice, but adding subclasses would've required a full
+   rewrite of the supplied code in the lessons */
   public Node(String question, String animal) {
     this.animal = animal;
     this.question = "Is it a " + animal + "?";
@@ -21,6 +25,7 @@ public class Node {
     this.right = null;
   }
 
+  //getters and setters
   public void setLeft(Node node) {
     left = node;
   }
@@ -43,10 +48,6 @@ public class Node {
 
   public String getAnimal(){
     return animal;
-  }
-
-  public void setQuestion(String question) {
-    this.question = question;
   }
 
   // prints the node, then its children (left to right child priority)
@@ -83,6 +84,7 @@ public class Node {
     return this.print("", true, "");
   }
 
+  // prints a node in binary tree format
   public String print(String prefix, boolean isTail, String sb) {
     if (right != null) {
       right.print(prefix + (isTail ? "│ " : " "), false, sb);

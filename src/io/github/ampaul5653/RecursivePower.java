@@ -23,9 +23,9 @@ public class RecursivePower {
   * recursivePower(2,3) = 2 * recursivePower(2,2) = 8
   */
   static int recursivePower(int a, int n) {
-    if (n == 0) {
+    if (n == 0) { //base case
       return 1;
-    } else {
+    } else { //recursive case
       return a * recursivePower(a, n - 1);
     }
   }

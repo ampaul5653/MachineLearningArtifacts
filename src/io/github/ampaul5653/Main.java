@@ -6,6 +6,8 @@ public class Main {
 
   public static void main(String[] args) {
 
+    //this java file is the driver for the Yes/No game
+
     // control variable for loop
     boolean programRunning = true;
     // initialize binary tree used in the main method
@@ -17,7 +19,7 @@ public class Main {
       while (programRunning) { // continuously loop program until exited
         System.out.println("Input x to exit \nInput d to display tree"
             + " \nInput any other key to continue");
-        String userInput = sc.nextLine();
+        String userInput = sc.nextLine().substring(0,1);
 
         // switch statement decides the program's next action based on the user's input
         switch (userInput) {
@@ -34,7 +36,7 @@ public class Main {
           // runs the Yes/No game
           default:
             System.out.println(aiTree.getCurrent().getQuestion()); // get question of root
-            String yesOrNo = sc.nextLine(); // take user answer
+            String yesOrNo = sc.nextLine().substring(0,1); // take user answer
             Node previousQuestion = null; // set default for previous node that the tree was on
 
             // while there are still nodes left to go to, travel through the tree
@@ -47,7 +49,7 @@ public class Main {
               aiTree.setCurrent(aiTree.moveCurrent(aiTree.getCurrent(), yesOrNo));
               // after moving, print the current question
               System.out.println(aiTree.getCurrent().getQuestion());
-              yesOrNo = sc.nextLine(); // take the user's input
+              yesOrNo = sc.nextLine().substring(0,1); // take the user's input
             }
 
             // Add a new question if the final answer is no. Print a victory message elsewise.

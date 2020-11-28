@@ -7,12 +7,9 @@ public class BTree {
   private Node root;
   private Node currentNode;
 
+  //simple constructor for btree object
   public BTree() {
     root = null;
-  }
-
-  public boolean search(String question) {
-    return search(root, question);
   }
 
   // searches for a node with a particular value
@@ -47,6 +44,7 @@ public class BTree {
     }
   }
 
+  //rearranges the binary tree's structure to accommodate a new question
   public void addNewQuestion(BTree bTree, Node previousQuestion){
     Scanner sc = new Scanner(System.in);
     //prompt user for the animal they were thinking of
@@ -59,7 +57,7 @@ public class BTree {
     //prompt user for the answer to their identifier
     System.out.println("And what would your answer for this question be if you were thinking of "
         + "a " + newAnimal + "?");
-    String newAnswer = sc.nextLine();
+    String newAnswer = sc.nextLine().substring(0,1);
 
     // create node holding the new animal
     Node newAnimalNode = new Node("", newAnimal);
